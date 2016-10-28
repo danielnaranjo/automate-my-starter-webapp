@@ -145,6 +145,21 @@ else
 	ls -lh application/config/config.php
 	ls -lh application/config/database.php
 
+	echo "# Create main controller and model "
+	echo "" >> application>controllers/Starter.php
+	echo "# For security reason, files are empty " >> application>controllers/Starter.php
+	echo "<?php " >> application>controllers/Starter.php
+	echo "	defined('BASEPATH') OR exit('No direct script access allowed');" >> application>controllers/Starter.php
+	echo "	class Site extends CI_Controller { " >> application>controllers/Starter.php
+	echo "		public function __construct() { " >> application>controllers/Starter.php
+	echo "			parent::__construct(); " >> application>controllers/Starter.php
+	echo "		} " >> application>controllers/Starter.php
+	echo "	} " >> application>controllers/Starter.php
+	echo "public function index() { "  >> application>controllers/Starter.php
+	echo "$this->load->view('site/login'); " >> application>controllers/Starter.php
+	echo " } " >> application>controllers/Starter.php
+	echo "	//Generate on $(date) by Daniel Naranjo" >> application>controllers/Starter.php
+
 	echo "#"
 	echo "#"
 	echo "# All task was done!"
