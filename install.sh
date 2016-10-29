@@ -53,7 +53,7 @@ else
 
 	echo "#"
 	echo "#"
-	echo "# Mkaing a folder"
+	echo "# Making a folder"
 	
 	if mkdir $FOLDER | grep -q COMMAND_FAILED ; then
 		echo "# Failure cd $FOLDER"
@@ -108,9 +108,6 @@ else
 		echo "# Rewrite database.php configuration"
 		echo "#"
 		echo "#"
-		
-		#echo -e " Add your database credentials: (ex. server user pass database): \c "
-		#read SERVER USERNAME PASSWORD DATABASE
 
 		if rm application/config/database.php | grep -q COMMAND_FAILED ; then
 			echo "# Failure rewriting database.php"
@@ -120,7 +117,6 @@ else
 		echo "#"
 		echo "#"
 
-		echo "# For security reason, database.php is a empty file. "
 		echo "" >> application/config/database.php
 		echo "<?php " >> application/config/database.php
 		echo "	defined('BASEPATH') OR exit('No direct script access allowed');" >> application/config/database.php
@@ -167,24 +163,33 @@ else
 	fi # end skipping backup
 
 	echo "# Create main controller and model "
-	echo "# For security reason, files are empty "
 	echo "#"
 	echo "" >> application/controllers/Starter.php
 	echo "<?php " >> application/controllers/Starter.php
 	echo "	defined('BASEPATH') OR exit('No direct script access allowed');" >> application/controllers/Starter.php
-	echo " "
+	echo " " >> application/controllers/Starter.php
 	echo "	class Starter extends CI_Controller { " >> application/controllers/Starter.php
-	echo " "
+	echo " " >> application/controllers/Starter.php
 	echo "		public function __construct() { " >> application/controllers/Starter.php
 	echo "			parent::__construct(); " >> application/controllers/Starter.php
 	echo "		} " >> application/controllers/Starter.php
 	echo "	} " >> application/controllers/Starter.php
-	echo " "
-	echo " "
+	echo " " >> application/controllers/Starter.php
+	echo " " >> application/controllers/Starter.php
 	echo "	public function index() { "  >> application/controllers/Starter.php
+	echo " " >> application/controllers/Starter.php
+	echo "		\$tables = \$this->db->list_tables(); " >> application/controllers/Starter.php
+	echo " " >> application/controllers/Starter.php
+	echo " 		foreach (\$tables as \$table) { " >> application/controllers/Starter.php
+	echo " 			\$fields = \$this->db->list_fields(\$table);" >> application/controllers/Starter.php
+	echo " 			foreach (\$fields as \$field) { " >> application/controllers/Starter.php
+	echo " 				echo \$table .'/'. \$field; " >> application/controllers/Starter.php
+	echo " 			} " >> application/controllers/Starter.php
+	echo " 		}" >> application/controllers/Starter.php
+	echo " " >> application/controllers/Starter.php
 	echo "		\$this->load->view('starter'); " >> application/controllers/Starter.php
 	echo " 	} " >> application/controllers/Starter.php
-	echo " "
+	echo " " >> application/controllers/Starter.php
 	echo "	// Generate on $(date) by Daniel Naranjo" >> application/controllers/Starter.php
 
 	echo "#"
