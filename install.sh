@@ -238,6 +238,18 @@ else
 	cd ..
 	echo "# Getting back"
 
+	echo "# Downloading Base project from GitHub"
+	if git clone https://github.com/danielnaranjo/seed-project-base.git | grep -q COMMAND_FAILED ; then
+		echo "# Failure downloading from GitHub, please check it out "
+		exit;
+	fi
+
+	echo "# renaming seed-project-base to assets"
+	if mv seed-project-base assets | grep -q COMMAND_FAILED ; then
+		echo "# Failure renaming seed-project-base to assets "
+		exit;
+	fi
+
 	echo "#"
 	echo "#"
 	echo "# All task was done!"
