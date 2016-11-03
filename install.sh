@@ -244,9 +244,24 @@ else
 		exit;
 	fi
 
-	echo "# renaming seed-project-base to assets"
-	if mv seed-project-base assets | grep -q COMMAND_FAILED ; then
-		echo "# Failure renaming seed-project-base to assets "
+	#echo "# renaming seed-project-base to assets"
+	#if mv seed-project-base base | grep -q COMMAND_FAILED ; then
+	#	echo "# Failure renaming seed-project-base to assets "
+	#	exit;
+	#fi
+
+	if mv seed-project-base/assets assets | grep -q COMMAND_FAILED ; then
+		echo "# Failure moving seed-project-base/assets to assets "
+		exit;
+	fi
+
+	if mv seed-project-base/admin demo | grep -q COMMAND_FAILED ; then
+		echo "# Failure moving seed-project-base/admin to demo "
+		exit;
+	fi
+
+	if rm seed-project-base -rf | grep -q COMMAND_FAILED ; then
+		echo "# Failure remove seed-project-base folder "
 		exit;
 	fi
 
